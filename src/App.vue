@@ -1,18 +1,55 @@
-// sr/App.vue
-<script>
-export default {
-    data() {
-        return {
-            greeting: "Hello, World!",
-        };
-    },
-};
-</script>
-
 <template>
-    <div class="message">{{ greeting }}</div>
+    <h1> {{ Topic }}</h1>
+    <p>Typed text: {{ text }}</p>
+    <input type="text" ref="name" v-model="text">
+    <button @click="handleClick"> buttonClick </button>
+
+    <br>
+    <div v-if="showBooks">
+        <ul>
+            <li v-for="book in filteredBooks" :class="{ fav: book.isFav }" @click="toggleFav(book)">
+                <h3>{{ book.title }}</h3>
+                <p> {{ book.author }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+    </button>
 </template>
 
-<style lang="scss">
-@import "./styles.scss";
-</style>
+<script>
+
+export default {
+    name: 'App',
+    data() {
+        return {
+            Topic: 'My first vue application',
+            url: 'http://books.toscrape.com/',
+            books: [
+                { title: 'A thousand splendid sunset', author: 'Patrick big', isFav: true },
+                { title: 'Meeting Kwamboka', author: 'Juma Konnan', isFav: true },
+                { title: 'Many ways no way', author: 'Samkipz', isFav: true },
+            ]
+        }
+    },
+    methods: {
+        handleClick() {
+            console.log()
+        },
+        toggleShowBooks() {
+            this.showBooks = !this.showBooks
+        },
+        toggleFav(book) {
+            book.isFav = !book.isFav
+        }
+    },
+    computed: {
+        filteredBooks() {
+            return this.books.filter((item) => item.isFav)
+        }
+    }
+}
+</script>
