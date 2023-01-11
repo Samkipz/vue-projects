@@ -5,7 +5,8 @@
     <div>
         <Cards v-for="company in companies" :businessName="company.businessName" :contact="company.contact"
             :phoneNumber="company.phoneNumber" :exportsTo="company.exportsTo" :isBooked="company.isBooked"
-            :key="company.id" class="company" :class="{ companyBooked: company.isBooked }">
+            :key="company.id" class="company" :class="{ companyBooked: company.isBooked }"
+            @toggleBooked="company.isBooked = !company.isBooked">
         </Cards>
     </div>
 
@@ -39,6 +40,7 @@ export default {
     background-color: rgb(183, 193, 202);
     margin: 1vmin 0;
     padding: 1vmin;
+    cursor: pointer;
 }
 
 .companyBooked {
