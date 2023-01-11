@@ -1,10 +1,14 @@
 <template>
     <div class="card">
         <header>
+            <!-- <h1>This is some header</h1> -->
             <!-- Title hear -->
+            <slot name="header">
+                <h4>{{ businessName }}</h4>
+            </slot>
         </header>
         <article>
-            <!-- Body here @click="$emit('enlarge-text')" -->
+            <!-- Body here -->
             <div @click="$emit('toggleBooked')">
                 <h5> <strong> Business Name: </strong> {{ businessName }}</h5>
                 <h5> <strong> Contact: </strong> {{ contact }}</h5>
