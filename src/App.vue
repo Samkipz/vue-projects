@@ -7,6 +7,10 @@
             :phoneNumber="company.phoneNumber" :exportsTo="company.exportsTo" :isBooked="company.isBooked"
             :key="company.id" class="company" :class="{ companyBooked: company.isBooked }"
             @toggleBooked="company.isBooked = !company.isBooked">
+            <!-- if the below slot header is not provided, the child component will resort to the fallback header slot named header-->
+            <template v-slot:header>
+                <div> <u> {{ company.businessName }} </u> </div>
+            </template>
         </Cards>
     </div>
 
