@@ -1,59 +1,47 @@
 <template>
-    <h1> {{ Topic }}</h1>
-    <p>Typed text: {{ text }}</p>
-    <input type="text" ref="name" v-model="text">
-    <div></div>
-    <button @click="handleClick"> buttonClick </button>
-
-    <br>
-    <div v-if="showBooks">
-        <h5><u>Click on a book to hide</u></h5>
-        <ul>
-            <li v-for="(book, index) in showBooks" v-bind:key="index" :class="{ fav: book.isFav }"
-                @click="toggleFav(book)">
-                <h3>{{ book.title }}</h3>
-                <p> {{ book.author }}</p>
-            </li>
-        </ul>
+    <header>
+        <h2> {{ title }} </h2>
+    </header>
+    <div>
+        <Cards v-for="company in companies" :businessName="company.businessName" :contact="company.contact"
+            :phoneNumber="company.phoneNumber" :exportsTo="company.exportsTo" :isBooked="company.isBooked"
+            :key="company.id" class="company" :class="{ companyBooked: company.isBooked }">
+        </Cards>
     </div>
 
-    <button @click="toggleShowBooks">
-        <span v-if="showBooks">Hide All Books</span>
-        <span v-else>Show Books</span>
-    </button>
+
 </template>
 
 <script>
+import Cards from './components/Cards.vue'
 
 export default {
-    name: 'App',
+    name: "App",
     data() {
         return {
-            Topic: 'My first vue application',
-            text: '',
-            url: 'http://books.toscrape.com/',
-            books: [
-                { title: 'A thousand splendid sunset', author: 'Patrick big', isFav: true },
-                { title: 'Meeting Kwamboka', author: 'Juma Konnan', isFav: true },
-                { title: 'Many ways no way', author: 'Samkipz', isFav: false },
+            title: "Sea Food Companies in Canada",
+            companies: [
+                { id: 1, businessName: "3t Business Inc.", contact: "Jack Young", phoneNumber: "970-00-324-63", exportsTo: "Asia, Africa, North America", isBooked: true },
+                { id: 1, businessName: "Second Company", contact: "Big King", phoneNumber: "970-00-324-63", exportsTo: "Asia, Europe, North America", isBooked: false },
             ]
         }
     },
-    methods: {
-        handleClick() {
-            alert("Button clicked!")
-        },
-        toggleShowBooks() {
-            this.showBooks = !this.showBooks
-        },
-        toggleFav(book) {
-            book.isFav = !book.isFav
-        }
-    },
-    computed: {
-        showBooks() {
-            return this.books.filter((item) => item.isFav)
-        }
+    components: {
+        Cards
     }
 }
 </script>
+
+<style lang="scss">
+.company {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(183, 193, 202);
+    margin: 1vmin 0;
+    padding: 1vmin;
+}
+
+.companyBooked {
+    background-color: aquamarine;
+}
+</style>
