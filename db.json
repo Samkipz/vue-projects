@@ -1,0 +1,22 @@
+{
+    "assignments": [
+        {
+            "id": 1,
+            "name": "Finish JavaScript",
+            "complete": false,
+            "tag": "VueJs"
+        },
+        {
+            "id": 1,
+            "name": "Summarize a blog",
+            "complete": false,
+            "tag": "VueJs"
+        },
+        {
+            "id": 1,
+            "name": "Submit Weekly Challenge",
+            "complete": false,
+            "tag": "VueJs"
+        }
+    ]
+}
