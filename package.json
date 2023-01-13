@@ -1,5 +1,5 @@
 {
-  "name": "vue-no-cli",
+  "name": "vue-jwt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "vue": "^3.2.36",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
