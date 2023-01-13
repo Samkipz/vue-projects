@@ -6,6 +6,13 @@ const { VueLoaderPlugin } = require("vue-loader");
 module.exports = {
     mode: "development",
     entry: "./src/index.js",
+    resolve: {
+        // ...
+        fallback: {
+            // 👇️👇️👇️ add this 👇️👇️👇️
+            "async_hooks": false,
+        }
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
     },
