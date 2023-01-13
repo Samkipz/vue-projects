@@ -37,8 +37,8 @@ export default {
         axios
             .get('http://localhost:3000/assignments')
             .then(response => {
-                console.log(response.data)
-                // data = response.data
+                const data = response.data
+                this.assignments = data;
             })
     },
     methods: {
