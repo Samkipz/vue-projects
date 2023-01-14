@@ -5,7 +5,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
     mode: "development",
-    entry: "./src/index.js",
+    entry: "./src/main.js",
     output: {
         path: path.resolve(__dirname, "dist"),
     },
@@ -17,7 +17,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 use: [
                     { loader: "vue-style-loader" },
                     {
